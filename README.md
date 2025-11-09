@@ -1,6 +1,5 @@
-# AI Plugin for Web Games - Project Plan
+# AI Plugin for Web Games
 
-This document outlines the plan for creating a reusable TypeScript library to integrate Google's Generative AI (Gemini) and Text-to-Speech into web-based games.
 
 ## 1. Core Objectives
 
