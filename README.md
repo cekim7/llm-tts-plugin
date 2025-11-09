@@ -122,13 +122,3 @@ These classes will encapsulate the logic for making API calls to Google Cloud (f
     // When a player interacts with an NPC...
     this._game.aiManager.generateNpcDialogue(this.currentEntity.sessionId);
     ```
-
-## 6. Next Steps
-
-1.  **Confirm this plan.**
-2.  **Implement the `GeminiService`** to connect to the LLM for text generation.
-3.  **Implement the `ElevenLabsTTSService`** for text-to-speech.
-4.  **Flesh out the `AIManager`** to coordinate these services.
-5.  **Create a proof-of-concept integration** in one of the example games (`ai-added-t5c` seems like a good candidate due to its TypeScript structure).
-
-This approach creates a clean separation of concerns, making the AI features robust, maintainable, and easy to reuse across different games.
