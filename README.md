@@ -25,7 +25,7 @@ This means the AI Plugin doesn't need to know about `Babylon.js`, `Colyseus`, or
 We will create a new directory `game-ai-plugin` at the project root.
 
 ```
-game-ai-plugin/
+llm-tts-plugin/
 ├── package.json         # Project dependencies and scripts
 ├── tsconfig.json        # TypeScript configuration
 ├── README.md            # This planning document
