@@ -12,17 +12,14 @@
 
 ## 2. Proposed Architecture: The Adapter Pattern
 
-To ensure portability, we will use the **Adapter Pattern**. The AI plugin will define a `GameAdapter` interface. Each game that wants to use the plugin will need to create its own concrete implementation of this interface. This decouples the AI logic from the specific implementation details of any single game.
+To ensure portability, we are using the **Adapter Pattern**. The AI plugin will define a `GameAdapter` interface. Each game that wants to use the plugin will need to create its own concrete implementation of this interface. 
 
 A simple diagram of the flow:
 
 **[Game Code] <--> [Game-Specific Adapter] <--> [AI Plugin] <--> [Google & ElevenLabs APIs]**
 
-This means the AI Plugin doesn't need to know about `Babylon.js`, `Colyseus`, or any other game-specific technology. It only communicates through the abstract `GameAdapter`.
 
 ## 3. Plugin Directory Structure
-
-We will create a new directory `game-ai-plugin` at the project root.
 
 ```
 llm-tts-plugin/
@@ -45,14 +42,14 @@ llm-tts-plugin/
 ## 4. Core Components Explained
 
 ### `AIManager.ts` (The Facade)
-This is the primary entry point for the game. The game will create an instance of `AIManager` and use it to trigger AI functionalities.
+This is the primary entry point for the game. 
 
 *   **Initialization:** `new AIManager(new YourGameAdapter(), { geminiApiKey: '...', elevenLabsApiKey: '...' })`
 *   **Example Method:** `async generateNpcDialogue(npcId: string, playerContext: any)`
-    *   It will use the `GameAdapter` to get more context about the game state.
-    *   It will call `GeminiService` to generate dialogue text.
-    *   It will call `ElevenLabsTTSService` to get the audio for the dialogue.
-    *   It will use the `GameAdapter` to play the audio and display the text in the game's UI.
+    *  `GameAdapter` to get more context about the game state.
+    *  `GeminiService` to generate dialogue text.
+    *  `ElevenLabsTTSService` to get the audio for the dialogue.
+    *  `GameAdapter` to play the audio and display the text in the game's UI.
 
 ### `GameAdapter.ts` (The Bridge)
 This `interface` is the contract between the plugin and the game. The game developer must implement it.
